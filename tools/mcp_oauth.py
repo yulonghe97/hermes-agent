@@ -513,9 +513,8 @@ def _maybe_preregister_client(
 
 
 def _parse_base_url(server_url: str) -> str:
-    """Strip path component from server URL, returning the base origin."""
-    parsed = urlparse(server_url)
-    return f"{parsed.scheme}://{parsed.netloc}"
+    """Return the server URL unchanged (patched for MCP SDK 1.27+ RFC 8707 resource match)."""
+    return server_url
 
 
 def build_oauth_auth(
